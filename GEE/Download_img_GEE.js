@@ -14,7 +14,7 @@ var roi = ee.Geometru.Polygon(
 var srtm  = ee.Image("USGS/SRTMGL1_003")
 
 //Visualizar o mapa
-Map.addLayer(srtm,{palett:['white','green','yellow','pink','red','darkred',]
+Map.addLayer(srtm,{palett:['white','green','yellow','pink','red','darkred'],
             min:0 , max:350}, 'SRTM POA')
 
 //Download da imagem para o drive
@@ -25,7 +25,7 @@ Export.image.toDrive({image:srtm,
     fileNamePrefix:'SRTM_POA',
     region:roi,
     scale:30,
-    crs'EPSG:4326',
+    crs:'EPSG:4326',
     maxPixels:1e13,
     fileformat:'GeoTIFF'})
     
